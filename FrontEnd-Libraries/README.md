@@ -1,6 +1,6 @@
 # Frontend Libraries Learning Folder 📚
 
-![freeCodeCamp Banner](https://raw.githubusercontent.com/freeCodeCamp/assets/master/assets/logos/FCC-logo-white.png)
+![freeCodeCamp Logo](https://upload.wikimedia.org/wikipedia/commons/3/39/FreeCodeCamp_logo.png)
 
 Welcome to the Frontend Libraries Learning Folder of my freeCodeCamp repository! This README.md is dedicated to documenting my journey through the fascinating realm of frontend libraries. As I explore various libraries and concepts, I aim to solidify my understanding and share my insights with fellow learners.
 
