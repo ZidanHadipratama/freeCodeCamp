@@ -1,6 +1,6 @@
 # Welcome to My freeCodeCamp Documentation! 📚
 
-![freeCodeCamp Banner](https://raw.githubusercontent.com/freeCodeCamp/assets/master/assets/logos/FCC-logo-white.png)
+![freeCodeCamp Logo](https://upload.wikimedia.org/wikipedia/commons/3/39/FreeCodeCamp_logo.png)
 
 This README.md is dedicated to my freeCodeCamp documentation repository, where I diligently compile all the valuable insights and knowledge I've gained while learning on [freeCodeCamp.org](https://www.freecodecamp.org/). As I embark on this coding journey, I'm committed to organizing and sharing my notes to help others and solidify my own understanding.
 
