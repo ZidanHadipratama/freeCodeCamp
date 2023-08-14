@@ -44,46 +44,44 @@ See below for an example of a cash-in-drawer array:
 
 It's hard to explain, I'm sorry:
 ```javascript
-function rot13(str) {
-  function checkCashRegister(price, cash, cid) {
-    let change = cash-price
-    const newcid = JSON.parse(JSON.stringify(cid))
-    const arr = []
-    const money = {
-        "PENNY" : 0.01,
-        "NICKEL": 0.05,
-        "DIME"  : 0.1,
-        "QUARTER": 0.25,
-        "ONE"   : 1,
-        "FIVE"  : 5,
-        "TEN"   : 10,
-        "TWENTY": 20,
-        "ONE HUNDRED": 100
+function checkCashRegister(price, cash, cid) {
+  let change = cash-price
+  const newcid = JSON.parse(JSON.stringify(cid))
+  const arr = []
+  const money = {
+    "PENNY" : 0.01,
+    "NICKEL": 0.05,
+    "DIME"  : 0.1,
+    "QUARTER": 0.25,
+    "ONE"   : 1,
+    "FIVE"  : 5,
+    "TEN"   : 10,
+    "TWENTY": 20,
+    "ONE HUNDRED": 100
+  }
+  let closed = 0
+  for (let i=newcid.length-1;i>=0;i--){
+    let many = Math.round(newcid[i][1]/money[newcid[i][0]])
+    let much = Math.floor(change/money[newcid[i][0]])
+    let need = Math.min(many,much)*money[newcid[i][0]]
+    if (Math.min(many,much) != 0 && change - need >= 0){
+      change = change - need
+      change = change.toFixed(2)
+      newcid[i][1] -= need
+      if (i==0 && change > 0){
+        return {status: "INSUFFICIENT_FUNDS", change: []}
+      }
+      arr.push([newcid[i][0], need])
     }
-    let closed = 0
-    for (let i=newcid.length-1;i>=0;i--){
-        let many = Math.round(newcid[i][1]/money[newcid[i][0]])
-        let much = Math.floor(change/money[newcid[i][0]])
-        let need = Math.min(many,much)*money[newcid[i][0]]
-        if (Math.min(many,much) != 0 && change - need >= 0){
-        change = change - need
-        change = change.toFixed(2)
-        newcid[i][1] -= need
-        if (i==0 && change > 0){
-            return {status: "INSUFFICIENT_FUNDS", change: []}
-        }
-        arr.push([newcid[i][0], need])
-        }
-        if (newcid[i][1] == 0){
-            closed++
-        }
+    if (newcid[i][1] == 0){
+        closed++
     }
-    if (closed == newcid.length){
-        return {status: "CLOSED", change: cid}
-    }else{
-        return {status: "OPEN", change: [...arr]}
-    }
-    }
+  }
+  if (closed == newcid.length){
+    return {status: "CLOSED", change: cid}
+  }else{
+    return {status: "OPEN", change: [...arr]}
+  }
 }
 ```
 
