@@ -59,6 +59,7 @@ Here are some of my completed solutions with my own code. Feel free to give me f
 2. [Project 2: Roman Numeral Converter](roman-numeral-converter)
 3. [Project 3: Caesar Cipher](caesars-cipher)
 4. [Project 4: Telephone Number Validator](telephone-number-validator)
+5. [Project 5: Cash Register](cash-register)
 
 Feel free to explore the solutions and let me know what you think! If you have any suggestions or questions, don't hesitate to reach out.
 
