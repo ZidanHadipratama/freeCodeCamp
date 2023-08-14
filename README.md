@@ -9,7 +9,7 @@ This README.md is dedicated to my freeCodeCamp documentation repository, where I
 Explore the comprehensive list of topics I've covered in my freeCodeCamp journey. Click on any topic to dive into the associated learning materials:
 
 - [JavaScript](./JavaScript)
-- [Front End Libraries](./Front_End_Libraries)
+- [Front End Libraries](FrontEnd-Libraries)
 <!-- - [Data Visualization](./Data_Visualization)
 - [Apis and Microservices](./Apis_and_Microservices)
 - [Quality Assurance](./Quality_Assurance)
