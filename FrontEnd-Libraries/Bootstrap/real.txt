@@ -1,0 +1,23 @@
+Bootstrap
+
+Use all of this in class:
+Most of bootstrap classes can be applied to a div element
+use img-responsive to make img responsive
+
+use text-center to center a text
+
+Use btn and btn-default for button
+You can use btn-block to make the button full screen
+You can change btn-default to btn-primary to make the btn colot to your primary color
+Pre-Defined Button Color:
+You can use btn-info to use blue-like color for your button
+Use btn-danger for red-like danger color to the button
+
+You can use grid system to help make website with bootstrap:
+Use row to make a row of the grid
+Inside the row of the grid, use col for each column
+col-md-* is for column with medium(md) and replace * with the size of the column(1,2,3,4....)
+col-xs-* is for extra small
+You can use well to give a visual sense of depth for your columns
+
+You can use form-control to input type text to give them a width of 100%
