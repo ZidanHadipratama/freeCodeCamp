@@ -1,0 +1,32 @@
+jQuery
+
+First, add $(document).ready(function(){}); to the html inside script tag.
+Now we can write jQuery for our html, write it inside $(document).ready(function(){});
+
+All jQuery usually start with $.
+jQuery often selects an HTML element with a selector, then does something to that element.
+For example, use $(button).addClass("animated bounce"); to give bouncing animation to button element.
+.addClass() allow to add classes to elements.
+You can also target element with classes and id. For example, to target class well element, use $(".well").
+
+To add class to element, use .addClass(""). Inside the parenthesis is the class you want to add.
+To remove class from element, use .removeClass("").
+
+You can also edit the CSS of an element using .css("",""). For example $("#target1").css("color", "red"); change target1 element and change the color to red.
+
+You can also change property of an element using .prop("",). For example $("#target1").css("color", "red").prop("disabled", true); will make element target1 disabled
+
+You can also add element inside of an element using .html(""). For example $("#target4").html("<em>#target4</em>") add <em>#target4</em> inside target4 element.
+
+You can also alter the text inside of an element using .text("").
+
+To remove element from html, use .remove(). For example $("#target4").remove() remove target4 from the page.
+
+You can move element from element to element by using .appendTo(""). For example $("#target2").appendTo("#right-well") move target2 to element #right-well.
+
+To copy an element, use .clone follow up by appendTo. For example $("#target5").clone().appendTo("#left-well"); copy target5 element to #left-well 
+
+You can also target the parent element of element by using .parent(). For example $("#target1").parent().css("background-color", "red"); target parent element of target1 element and change the background-color to red.
+To target the children of an element, use .children(). For example $("#right-well").children().css("color", "orange") target the children of #rigth-well element and change the color to orange.
+To target a certain element, you can use :nth-child() selector. For example $(".target:nth-child(2)").addClass("animated bounce") target all the second element of an element with target class inside the parent element.
+You can also target element base on even or odd position. jQuery is zero-indexed. To target odd, :odd selector. To target even, use :even selector. For example  $(".target:even").addClass("animated shake") target an element with class target that are position in even place (2,4,6,...) and give them a shake animation.
