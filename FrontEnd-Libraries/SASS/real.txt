@@ -1,0 +1,159 @@
+SASS
+
+In CSS, you can SASS. To use it, simply by using <style type="text/scss"></style>.
+
+In SASS, it is easier to make variabel, just use $ as let or const for declaration. For example $text-color: red; is a variabel text-color that store value red. To use is, simply by color: $text-color;.
+
+You can also do nesting in SASS. For example:
+Instead of this:
+nav {
+  background-color: red;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline-block;
+}
+You can use this:
+nav {
+  background-color: red;
+
+  ul {
+    list-style: none;
+
+    li {
+      display: inline-block;
+    }
+  }
+}
+
+You can also use mixin feature in SASS, for example:
+Instead of this:
+div {
+  -webkit-box-shadow: 0px 0px 4px #fff;
+  -moz-box-shadow: 0px 0px 4px #fff;
+  -ms-box-shadow: 0px 0px 4px #fff;
+  box-shadow: 0px 0px 4px #fff;
+}
+You can use this:
+@mixin box-shadow($x, $y, $blur, $c){ 
+  -webkit-box-shadow: $x $y $blur $c;
+  -moz-box-shadow: $x $y $blur $c;
+  -ms-box-shadow: $x $y $blur $c;
+  box-shadow: $x $y $blur $c;
+}
+And to use that is like this:
+div {
+  @include box-shadow(0px, 0px, 4px, #fff);
+}
+
+
+
+The @if directive in Sass is useful to test for a specific case - it works just like the if statement in JavaScript.
+@mixin make-bold($bool) {
+  @if $bool == true {
+    font-weight: bold;
+  }
+}
+And just like in JavaScript, the @else if and @else directives test for more conditions:
+@mixin text-effect($val) {
+  @if $val == danger {
+    color: red;
+  }
+  @else if $val == alert {
+    color: yellow;
+  }
+  @else if $val == success {
+    color: green;
+  }
+  @else {
+    color: black;
+  }
+}
+
+There are also @for feature in SASS. @for have 2 feature in SASS, "start through end" or "start to end". start through end is include the last number and start to end don't. Here are example usage:
+@for $i from 1 through 12 {
+  .col-#{$i} { width: 100%/12 * $i; }
+}
+The output:
+.col-1 {
+  width: 8.33333%;
+}
+
+.col-2 {
+  width: 16.66667%;
+}
+
+...
+
+.col-12 {
+  width: 100%;
+}
+
+
+There are also @each feature, here are an example:
+@each $color in blue, red, green {
+  .#{$color}-text {color: $color;}
+}
+output:
+.blue-text {
+  color: blue;
+}
+
+.red-text {
+  color: red;
+}
+
+.green-text {
+  color: green;
+}
+
+
+The @while directive is an option with similar functionality to the JavaScript while loop. It creates CSS rules until a condition is met.
+
+The @for challenge gave an example to create a simple grid system. This can also work with @while.
+
+$x: 1;
+@while $x < 13 {
+  .col-#{$x} { width: 100%/12 * $x;}
+  $x: $x + 1;
+}
+
+First, define a variable $x and set it to 1. Next, use the @while directive to create the grid system while $x is less than 13. After setting the CSS rule for width, $x is incremented by 1 to avoid an infinite loop.
+
+
+
+Partials in Sass are separate files that hold segments of CSS code. These are imported and used in other Sass files. This is a great way to group similar code into a module to keep it organized.
+
+Names for partials start with the underscore (_) character, which tells Sass it is a small segment of CSS and not to convert it into a CSS file. Also, Sass files end with the .scss file extension. To bring the code in the partial into another Sass file, use the @import directive.
+
+For example, if all your mixins are saved in a partial named "_mixins.scss", and they are needed in the "main.scss" file, this is how to use them in the main file:
+
+@import 'mixins'
+
+Note that the underscore and file extension are not needed in the import statement - Sass understands it is a partial. Once a partial is imported into a file, all variables, mixins, and other code are available to use.
+ 
+
+
+Sass has a feature called extend that makes it easy to borrow the CSS rules from one element and build upon them in another.
+
+For example, the below block of CSS rules style a .panel class. It has a background-color, height and border.
+
+.panel{
+  background-color: red;
+  height: 70px;
+  border: 2px solid green;
+}
+
+Now you want another panel called .big-panel. It has the same base properties as .panel, but also needs a width and font-size. It's possible to copy and paste the initial CSS rules from .panel, but the code becomes repetitive as you add more types of panels. The extend directive is a simple way to reuse the rules written for one element, then add more for another:
+
+.big-panel{
+  @extend .panel;
+  width: 150px;
+  font-size: 2em;
+}
+
+The .big-panel will have the same properties as .panel in addition to the new styles.
