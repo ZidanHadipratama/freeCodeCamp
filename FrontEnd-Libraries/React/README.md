@@ -18,6 +18,11 @@ Welcome to the React Quick Guide! In this guide, you'll gain an understanding of
   - [Overwriting Default Props](#overwriting-default-props)
   - [Accessing Props in ES6 Class Components](#accessing-props-in-es6-class-components)
   - [Prop Types](#prop-types)
+- [State and Lifecycle](#state-and-lifecycle)
+  - [Setting Initial State](#setting-initial-state)
+  - [Accessing State](#accessing-state)
+  - [Accessing State in the `render()` Method](#accessing-state-in-the-render-method)
+  - [Class Method and Binding](#class-method-and-binding)
 - [Conclusion](#conclusion)
 
 ## Introduction 📜
@@ -197,9 +202,111 @@ Items.propTypes = {
 };
 ```
 
+## State and Lifecycle
+
+### Setting Initial State
+
+State is used to manage dynamic data in a component. You can initialize the state in the constructor of a class component.
+
+```javascript
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'freeCodeCamp',
+    };
+  }
+}
+```
+
+### Accessing State
+
+Access state using `this.state.propertyName` within your class component methods, including the `render()` method.
+
+```javascript
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0,
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <p>Count: {this.state.count}</p>
+      </div>
+    );
+  }
+}
+```
+
+### Accessing State in the `render()` Method
+
+There is another way to access state in a component. In the `render()` method, before the
+
+ `return` statement, you can write JavaScript directly. For example, you could declare functions, access data from state or props, perform computations on this data, and so on. Then, you can assign any data to variables, which you have access to in the `return` statement.
+
+Here's an example:
+
+```javascript
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'freeCodeCamp',
+    };
+  }
+  render() {
+    // Change code below this line
+    const name = this.state.name;
+    // Change code above this line
+    return (
+      <div>
+        { /* Change code below this line */ }
+        <h1>{name}</h1>
+        { /* Change code above this line */ }
+      </div>
+    );
+  }
+}
+```
+
+### Class Method and Binding
+
+When defining custom class methods that need to access `this`, ensure you bind them in the constructor to the instance of the class. This is necessary for the method to access the correct instance of `this`.
+
+```javascript
+class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isToggled: false,
+    };
+    this.toggleButton = this.toggleButton.bind(this);
+  }
+
+  toggleButton() {
+    this.setState((prevState) => ({
+      isToggled: !prevState.isToggled,
+    }));
+  }
+
+  render() {
+    return (
+      <div>
+        <button onClick={this.toggleButton}>Toggle</button>
+        {this.state.isToggled && <p>Toggle is ON</p>}
+      </div>
+    );
+  }
+}
+```
+
 ## Conclusion 🎉
 
-React's component-based architecture, JSX syntax, and features like props and prop types provide a powerful foundation for building dynamic and modular user interfaces. By creating reusable components and thinking in terms of composition, you can create efficient and maintainable web applications.
+React's component-based architecture, JSX syntax, state management, and lifecycle methods provide a powerful foundation for building dynamic and modular user interfaces. By creating reusable components, handling state, and understanding component lifecycles, you can create efficient and maintainable web applications.
 
 For more detailed information and advanced topics, explore the official [React documentation](https://reactjs.org/docs/getting-started.html).
 
