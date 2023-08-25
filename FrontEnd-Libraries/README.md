@@ -21,6 +21,7 @@ Here's a list of the topics I've covered within the realm of frontend libraries:
 - [Bootstrap](Bootstrap)
 - [jQuery](jQuery)
 - [SASS](SASS)
+- [React](React)
 
 Each topic is accompanied by a dedicated folder containing detailed notes, code examples, and projects to showcase the practical application of the concepts learned.
 
