@@ -324,8 +324,7 @@ class FetchData extends React.Component {
 
 Use shouldComponentUpdate() to optimize performance by controlling re-renders. Return true or false:
 
-jsx
-
+```jsx
 class OnlyEvens extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     return nextProps.value % 2 === 0;
@@ -335,6 +334,7 @@ class OnlyEvens extends React.Component {
     return <h1>{this.props.value}</h1>;
   }
 }
+```
 
 # componentDidUpdate()
 
