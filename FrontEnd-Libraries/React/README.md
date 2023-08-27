@@ -1504,5 +1504,3 @@ class App extends React.Component {
 
 ReactDOMServer.renderToString(<App/>);
 ```
-
-Feel free to explore these advanced techniques to enhance your React applications. Happy coding!
