@@ -1504,3 +1504,45 @@ class App extends React.Component {
 
 ReactDOMServer.renderToString(<App/>);
 ```
+
+## Example: Display Message
+
+```jsx
+class DisplayMessages extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      input: '',
+      messages: []
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.submitMessage = this.submitMessage.bind(this)
+  }
+  handleChange(event){
+    this.setState({
+      input: event.target.value
+    })
+  }
+  submitMessage(event){
+    event.preventDefault()
+    this.setState({
+      messages: [...this.state.messages, this.state.input]
+    })
+    this.setState({
+      input: ''
+    })
+  }
+  render() {
+    const messages = this.state.messages.map(i => <li key={i}>{i}</li>)
+
+    return (
+      <div>
+        <h2>Type in a new Message:</h2>
+        <input onChange={this.handleChange} value={this.state.input}/>
+        <button onClick={this.submitMessage}>Send</button>
+        <ul>{messages}</ul>
+      </div>
+    );
+  }
+};
+```
