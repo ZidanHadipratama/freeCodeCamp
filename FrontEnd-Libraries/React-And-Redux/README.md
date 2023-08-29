@@ -1,12 +1,12 @@
-# React & Redux
+# React & Redux 😎
 
-## Getting Started with React Redux
+## Getting Started with React Redux 🚀
 
 First, let's review some key principles of React and Redux. React is a view library that efficiently renders views based on data. Redux is a state management framework that simplifies managing your app's state. In a React Redux app, you typically create a single Redux store to manage the state for your entire app. React components subscribe to specific pieces of data in the store and can trigger updates by dispatching actions.
 
 While React components can manage their own local state, for more complex apps, it's often better to centralize the app's state with Redux. There are exceptions for components that need isolated local state. To integrate Redux with React, you'll use the `react-redux` package, which enables you to pass Redux state and dispatch as props to your React components.
 
-### Example: Managing State Locally
+### Example: Managing State Locally 📝
 
 Here's an example of managing state locally in a React component:
 
@@ -50,7 +50,7 @@ class DisplayMessages extends React.Component {
 }
 ```
 
-### Example: Managing State with Redux (Not Integrated with React)
+### Example: Managing State with Redux (Not Integrated with React) 🔗
 
 Here's an example of managing state with Redux:
 
@@ -80,7 +80,7 @@ store.dispatch(addMessage("Testing"))
 console.log(store.getState())
 ```
 
-## Using Provider to Connect Redux to React
+## Using Provider to Connect Redux to React 🔄
 
 React Redux provides two key features: `Provider` and `connect`. `Provider` is a wrapper component that allows your React app to access the Redux store and dispatch functions. It takes two props: the Redux store and the child components of your app. You can set up the `Provider` like this:
 
@@ -182,7 +182,7 @@ class AppWrapper extends React.Component {
 };
 ```
 
-## Mapping State to Props
+## Mapping State to Props 🗺️
 
 To map state from the Redux store to component props, you'll use the `mapStateToProps()` function:
 
@@ -196,7 +196,7 @@ const mapStateToProps = (state) => {
 }
 ```
 
-## Mapping Dispatch to Props
+## Mapping Dispatch to Props 📣
 
 The `mapDispatchToProps()` function maps action creators to component props for dispatching actions:
 
@@ -217,7 +217,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 ```
 
-## Connecting Redux to React
+## Connecting Redux to React 🔌
 
 You can use the `connect` method to connect state and dispatch to your React component props:
 
@@ -262,7 +262,7 @@ const connect = ReactRedux.connect;
 const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(Presentational)
 ```
 
-## Connecting Redux to the Messages App
+## Connecting Redux to the Messages App 🔗
 
 Now, let's connect Redux to your Messages component:
 
@@ -373,7 +373,7 @@ class AppWrapper extends React.Component {
 
 ```
 
-## Extracting Local State into Redux
+## Extracting Local State into Redux 🏗️
 
 To move local state management to Redux, modify your component like this:
 
